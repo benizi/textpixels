@@ -149,6 +149,7 @@ end
 def magick(colorrows, opts)
   cmd = %w[convert -size]
   cmd << [opts.cols, colorrows.size].join('x')
+  cmd += %W[-background ##{opts.bg[0,6]}]
   cmd += %W[-depth 8 #{opts.alpha? ? 'rgba' : 'rgb'}:-]
   if opts.height
     cmd += %W[-crop x#{opts.height} +append]
@@ -156,7 +157,6 @@ def magick(colorrows, opts)
       cmd += %W[-crop #{opts.crop}]
     end
   end
-  cmd += %W[-background ##{opts.bg[0,6]}]
   cmd += [opts.out]
   Open3.popen2(*cmd) do |stdin,stdout|
     stdout.close
