@@ -6,9 +6,16 @@ Generate an image of a repository, visualized as 1-pixel tall text.
 
 This requires ImageMagick, if you want images instead of raw pixels.
 
+This requires that the Python Pygments `pygmentize` command is in your PATH.
+If you don't have Pygments installed, just run:
+
+```sh
+pip install pygments
+```
+
 This also requires Ruby 2.0.  (The language detection libs require it.)
 
-Then, just check out this repo and install dependencies with bundler:
+Then, just check out this repo and install the Ruby dependencies with Bundler:
 
 ```sh
 bundle
