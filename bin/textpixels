@@ -104,7 +104,7 @@ def html_to_pixels(html, css, cols, fg, bg)
   rows = []
 
   html.each_with_progress do |file|
-    colorstack = [ { fg: fg, bg: bg} ]
+    colorstack = [ { fg: fg, bg: bg}.merge(css.fetch(lang_css(nil), {})) ]
 
     file.lines do |line|
       colors = []
