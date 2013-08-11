@@ -17,8 +17,7 @@ opts = {
   bg: '00000000', # default background (= #000000 fully transparent)
   skipunknown: false, # skip files whose types can't be identified
   linelimit: nil, # maximum number of lines to render
-  blitphase: 'magick',
-  # Options for ImageMagick
+  blitphase: 'magick', # What to run as the bit-blitting phase
   crop: '1920x+0+0', # Final image crop (none if nil)
   out: 'x:', # Default to show on-screen
   height: 1080, # Default screen height
