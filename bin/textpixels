@@ -36,6 +36,11 @@ OptionParser.new do |o|
   o.on('--known', '--skip-unknown') { opts[:skipunknown] = true }
   o.on('--lines MAX', Integer) { |max| opts[:linelimit] = max }
   o.on('--out IMAGEFILE') { |file| opts[:out] = file }
+  o.on('--size WxH') do |dims|
+    w,h = dims.split('x')
+    opts[:height] = h.to_i
+    opts[:crop] = "#{w}x+0+0"
+  end
   o.on('--crop DIMS') { |opts| opts[:crop] = dims }
   o.on('--no-crop') { opts[:crop] = nil }
   o.on('--raw') { opts[:blitphase] = 'blit' }
