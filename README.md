@@ -2,6 +2,8 @@
 
 Generate an image of a repository, visualized as 1-pixel tall text.
 
+![TextPixels output](/example.png "Example output")
+
 # Installation
 
 This requires ImageMagick, if you want images instead of raw pixels.
