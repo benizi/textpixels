@@ -33,57 +33,57 @@ bundle exec bin/textpixels --repo /path/to/repository --out graphic.png
 
 # Options
 
-* [--files](#files) FILES / [--repo](#files) REPO
-* [--cols](#cols) N
-* [--transparent](#transparent) / [--alpha](#transparent)
-* [--solid](#solid) / [--no-alpha](#solid)
-* [--style](#style) STYLE
-* [--finish](#finish) PHASE
-* [--load](#load) FILE
-* [--save](#save) FILE
-* [--known](#known) / [--skip-unknown](#known)
-* [--lines](#lines) MAX
-* [--out](#out) IMAGEFILE
-* [--size](#size) WxH
-* [--crop](#crop) DIMS
-* [--no-crop](#no-crop)
-* [--raw](#raw)
-* [--height](#height) N
-* [--long](#long)
-* [--fg](#fg) COLOR / [--default-fg](#default-fg) COLOR
-* [--bg](#bg) COLOR / [--default-bg](#default-bg) COLOR
-* [--lang-as](#lang-as) PROPS
+* [--files](#--files-files----repo-repo) FILES / [--repo](#files) REPO
+* [--cols](#--cols-n) N
+* [--transparent](#--transparent----alpha) / [--alpha](#--transparent----alpha)
+* [--solid](#--solid----no-alpha) / [--no-alpha](#--solid----no-alpha)
+* [--style](#--style-style) STYLE
+* [--finish](#--finish-phase) PHASE
+* [--load](#--load-file) FILE
+* [--save](#--save-file) FILE
+* [--known](#--known--skip-unknown) / [--skip-unknown](#--known--skip-unknown)
+* [--lines](#--lines-max) MAX
+* [--out](#--out-imagefile) IMAGEFILE
+* [--size](#--size-wxh) WxH
+* [--crop](#--crop-dims) DIMS
+* [--no-crop](#--no-crop)
+* [--raw](#--raw)
+* [--height](#--height-n) N
+* [--long](#--long)
+* [--fg](#--fg-color----default-fg-color) COLOR / [--default-fg](#--fg-color----default-fg-color) COLOR
+* [--bg](#--bg-color----default-bg-color) COLOR / [--default-bg](#--bg-color----default-bg-color) COLOR
+* [--lang-as](#--lang-as-props) PROPS
 
 ## Option descriptions
 
-* <a id="files"></a>`--files` FILES / [--repo](#files) REPO
+##### `--files` FILES / `--repo` REPO
 
 What files to process.  If neither option is given, filenames will be read from
 stdin.  A directory is treated as a git repository on which `git ls-files` will
 be called to find filenames.
 
-* <a id="cols"></a>`--cols` N
+##### `--cols` N
 
 Number of columns per line of text.  Default: 80.
 
-* <a id="transparent"></a>`--transparent` / [--alpha](#transparent)
+##### `--transparent` / `--alpha`
 
 Make the default background transparent.
 
-* <a id="solid"></a>`--solid` / [--no-alpha](#solid)
+##### `--solid` / `--no-alpha`
 
 Don't use transparency.  (Default is to not use transparency.)
 
-* <a id="style"></a>`--style` STYLE
+##### `--style` STYLE
 
 Name of a Pygments style to use for colorization.  [Try the Pygments
 demo](http://pygments.org/demo) to see them.
 
 The special value NONE will prevent any style from being used. Then you
-probably also want to use [--lang-as](#lang-as) for language-based colors, or
-[--fg](#fg) and [--bg](#bg) for two-color output.
+probably also want to use [--lang-as](#--lang-as-props) for language-based colors, or
+[--fg](#--fg-color----default-fg-color) and [--bg](#--bg-color----default-bg-color) for two-color output.
 
-* <a id="finish"></a>`--finish` PHASE
+##### `--finish` PHASE
 
 Only really useful with [--save](#save).
 
@@ -92,11 +92,11 @@ set of files to colorize them in several different ways.
 
 [See example below.](#preproc)
 
-* <a id="load"></a>`--load` FILE
+##### `--load` FILE
 
 Load a file previously [--save](#save)'d.
 
-* <a id="save"></a>`--save` FILE
+##### `--save` FILE
 
 Save the results of processing in the named file.  Mostly for debugging.  But
 can be used for caching intermediate stages for multiple uses.  E.g.:
@@ -112,57 +112,57 @@ bundle exec bin/textpixels --load HTML --style fruity --out fruity.png
 bundle exec bin/textpixels --load HTML --style monokai --out monokai.png
 ```
 
-* <a id="known"></a>`--known` / [--skip-unknown](#known)
+##### `--known`/`--skip-unknown`
 
 Ignore files with unknown filetype.
 
-* <a id="lines"></a>`--lines` MAX
+##### `--lines` MAX
 
 Only render the first MAX lines of output.
 
-* <a id="out"></a>`--out` IMAGEFILE
+##### `--out` IMAGEFILE
 
 Output to this file.  Can use anything valid as the target of an ImageMagick
 command.  See [the explanation of Output
 Filename](http://www.imagemagick.org/script/command-line-processing.php#output)
 in the ImageMagick documentation.
 
-* <a id="height"></a>`--height` N
+##### `--height` N
 
 Height of an image strip.  Default: 1080.
 
-* <a id="crop"></a>`--crop` DIMS
+##### `--crop` DIMS
 
 Size of the final crop for the output image.  Default: 1920x+0+0.  See [the
 ImageMagick description of
 -crop](http://www.imagemagick.org/script/command-line-options.php#crop)
 
-* <a id="no-crop"></a>`--no-crop`
+##### `--no-crop`
 
 Prevents the final image crop.
 
-* <a id="long"></a>`--long`
+##### `--long`
 
-Sets [--no-crop](#no-crop) and makes the height as tall as needed to fit all
+Sets [--no-crop](#--no-crop) and makes the height as tall as needed to fit all
 file lines.
 
-* <a id="size"></a>`--size` WxH
+##### `--size` WxH
 
-Sets [--height](#height) to H and [--crop](#crop) to Wx+0+0.
+Sets [--height](#height) to H and [--crop](#--crop-dims) to Wx+0+0.
 
-* <a id="raw"></a>`--raw`
+##### `--raw`
 
 Prints raw RGB or RGBA (depending on [--transparency](#transparent)) pixels.
 
-* <a id="fg"></a>`--fg` COLOR / [--default-fg](#default-fg) COLOR
+##### `--fg` COLOR / `--default-fg` COLOR
 
 Default foreground color.  Must be specified as RRGGBB or RRGGBBAA.  (No leading hash.)
 
-* <a id="bg"></a>`--bg` COLOR / [--default-bg](#default-bg) COLOR
+##### `--bg` COLOR / `--default-bg` COLOR
 
 Default background color.  Must be specified as RRGGBB or RRGGBBAA.  (No leading hash.)
 
-* <a id="lang"></a>`--lang-as` PROPS
+##### `--lang-as` PROPS
 
 Use the GitHub language color as the specified comma-separated CSS properties.
 Only `color` and `background-color` have any effect.
