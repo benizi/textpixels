@@ -223,7 +223,7 @@ end
 def identify(state)
   state.filenames.each_with_progress do |file|
     blob = Linguist::FileBlob.new(*file)
-    next if blob.binary? or blob.generated?
+    next if blob.binary? or blob.generated? or blob.vendored?
     state.blobs << blob
   end
 end
